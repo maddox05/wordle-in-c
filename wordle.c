@@ -1,4 +1,4 @@
-#include <cs50.h>
+#include "cs50.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -34,7 +34,7 @@ int main(int argc, string argv[])
         exit(1);
     }
     int wordsize = 0;
-    if (argv[1][0] - 48 == 5 || argv[1][0] - 48 == 6 || argv[1][0] - 48 == 7 || argv[1][0] - 48 == 8)
+    if (argv[1][0] - 48 == 5 || argv[1][0] - 48 == 6 || argv[1][0] - 48 == 7 || argv[1][0] - 48 == 8) // checks if its a number
     {
         wordsize = argv[1][0] - 48;
     }
