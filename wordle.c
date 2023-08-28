@@ -1,4 +1,4 @@
-#include "library/cs50.h"
+#include <cs50.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -34,7 +34,7 @@ int main(int argc, string argv[])
         exit(1);
     }
     int wordsize = 0;
-    if (argv[1][0] - 48 == 5 || argv[1][0] - 48 == 6 || argv[1][0] - 48 == 7 || argv[1][0] - 48 == 8) // checks if its a number
+    if (argv[1][0] - 48 == 5 || argv[1][0] - 48 == 6 || argv[1][0] - 48 == 7 || argv[1][0] - 48 == 8)
     {
         wordsize = argv[1][0] - 48;
     }
@@ -110,7 +110,7 @@ int main(int argc, string argv[])
         }
     }
 
-    printf("Word was: %s", choice);
+    printf("Word was: %s\n", choice);
     return 0;
 }
 
@@ -139,7 +139,6 @@ int check_word(string guess, int wordsize, int status[], string choice) // choic
         {
             status[i] = EXACT;
             score = score + status[i];
-            printf("Exact Match ");
         }
         else
         {
@@ -149,17 +148,14 @@ int check_word(string guess, int wordsize, int status[], string choice) // choic
                 {
                     status[i] = CLOSE;
                     score = score + status[i];
-                    printf("CLOSE Match ");
                 }
                 else if (j == (wordsize - 1) && guess[i] != choice[j])
                 { // prob cause errs
                     status[i] = WRONG;
                     score = score + status[i];
-                    printf("WRONG MATCH ");
                 }
             }
         }
-        printf("SCORE IS NOW %i ", score);
     }
     return score;
     // compare guess to choice and score points as appropriate, storing points in status
